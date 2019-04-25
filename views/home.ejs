@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title><%= on?'Handerstand':tag.split("-").join(" ")%></title>
+	<link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+	<div class="container_main">
+		<div class="container">
+			<div class="main">
+				<div class="right">
+					<div class="list_container">
+                        <ul>
+								
+								<% posts.forEach(function(post){ %>
+
+								<li><a href="<%= on?post.url:tag+'/'+post.url %>">
+										<div class="list">
+											<div class="left">
+												<h4 class="list_title"><%=post.title%></h4>
+												<p class="description"><%=post.description%></p>
+												<p class="tags">
+													<% post.tags.forEach(function(i){ %>
+														<span><%=i.split("-").join(" ")%></span>
+													<% }) %>
+												</p>
+											</div>
+											<div class="right">
+												<% include myfunctions.ejs %>
+												<p><%= genDate(post.date) %></p>
+											</div>
+										</div>
+								</a></li>
+
+								<% }) %>
+							
+                        </ul>
+                    </div>
+				</div>
+				<aside>
+						<a href="/" style="text-decoration-color: #64c37d"><div style="display:flex;flex-direction: row">
+								<img src="/img/logo.svg" class="logo" alt="">
+								<span style="color: #343434;line-height: 50px;font-size: 28px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-weight: 600">anderstand</span>
+						</div></a>
+						<br>
+						<% if(!on){ %>
+							<h5>&raquo; <%=tag.split("-").join(" ")%></h5>
+						<% } %>
+					<br>
+					<input type="search" placeholder="Search">
+						<% if(on){ %> 
+							<h4>Categories</h4>	 
+						<%}%>
+						<ul>
+							<% if(on){ tags.forEach(function(i){ %>
+								<a href="<%= i.code %>"><li><%= i.title %></li></a>
+							<% });} %>
+						</ul>
+				</aside>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

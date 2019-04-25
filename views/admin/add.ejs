@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Admin | Add Post</title>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<div class="container_main">
+		<div class="container">
+			<div class="main">
+				<div class="right">
+                    <div id="details">
+                        <div id="post_title" contenteditable="true">Title of Post</div>
+                        <div id="post_description" contenteditable="true">Description</div>
+                    </div>
+                    <div id="inner">
+                        <div class="post_data" ref-data="h" contenteditable="true">Heading</div>
+                        <div class="post_data" ref-data="p" contenteditable="true">Paragraph</div>
+                    </div>
+                    <div class="controls">
+                        <button onclick="add(0)">&laquo;h4&raquo;</button>
+                        <button onclick="add(1)">&laquo;p&raquo;</button>
+                        <button onclick="add(2)">&laquo;c++&raquo;</button>
+                        <button onclick="add(3)">&laquo;JS&raquo;</button>
+                        <button onclick="add(4)">&laquo;Markup&raquo;</button>
+                        <button onclick="add(5)">&laquo;Java&raquo;</button>
+                    </div>
+				</div>
+				<aside>
+                    <% include partials/nav.ejs %>
+                        <br>
+                        <div class="keywords">
+                            <span class="placeholder">selected:</span>
+                            <div id="words">
+                            </div>
+                            
+                            <span class="placeholder">available:</span>
+                            <div id="available">
+                                <% tags.forEach(function(i){ %>
+                                    <span ref-data="<%= i.code %>"><%= i.title %></span>
+                                <% }); %>
+                            </div>
+                            <input onkeyup="enter(event)" id="keyword_data" type="text" placeholder="Add new Tag">
+                        </div>
+                        <br>
+                        <button onclick="submit('internet')">toTheInternet()</button>
+                        <br><br>
+                        <button onclick="submit('draft')">toDraft()</button>
+				</aside>
+			</div>
+		</div>
+	</div>
+    <script src="../js/script.js"></script>
+</body>
+</html>

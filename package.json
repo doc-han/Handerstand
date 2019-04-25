@@ -1,0 +1,28 @@
+{
+  "name": "handerstand",
+  "version": "1.0.0",
+  "description": "My personal blog",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blog",
+    "journal"
+  ],
+  "author": "Yahaya Farhan",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "connect-mongo": "^2.0.3",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^7.0.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "express-session": "^1.16.1",
+    "mongodb": "^3.2.3",
+    "mongoose": "^5.5.2",
+    "prismjs": "^1.16.0"
+  }
+}

@@ -1,0 +1,21 @@
+<%
+
+    genDate = function(date){
+        mnths = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        day = date.getDate();
+        month = date.getMonth();
+        year = date.getFullYear();
+        ext = 'th';
+        switch(day){
+            case 11:
+            case 12:
+            case 13:
+                break;
+            default:
+                if(day%10==1)ext = 'st';
+                else if(day%10==2)ext = 'nd';
+                else if(day%10==3)ext = 'rd';
+        }
+        return day+ext+" "+mnths[month]+" "+year;
+    }
+%>
