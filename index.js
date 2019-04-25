@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 require('dotenv').config();
-var port = 8080 || process.env.PORT;
+var port = process.env.PORT || 8080;
 
 app.use(express.static(__dirname+'/public'));
 app.use(bodyParser.json());
