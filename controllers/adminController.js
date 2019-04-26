@@ -5,8 +5,8 @@ var tag = require('../models/tagModel');
 var seo_url = require('../config/urlgen');
 
 var admin = {
-    username: 'Han',
-    password: 'halhan'
+    username: process.env.ADMIN_NAME,
+    password: process.env.ADMIN_PASS
 }
 
 router.get('/', isNotLoggenIn,(req,res)=>{
