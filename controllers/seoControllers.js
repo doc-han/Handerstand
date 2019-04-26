@@ -1,4 +1,5 @@
 var post = require('../models/postModel');
+var tag = require('../models/tagModel');
 
 var site = process.env.URL;
 
@@ -17,9 +18,22 @@ module.exports = function(app){
                 xml += `<url><loc>${url}</loc>`;
                 xml += `<lastmod>${i.date.toISOString()}</lastmod></url>`;
             })
-            xml += `</urlset>`;
-            res.send(xml);
+
+            tag.find().select("code")
+            .then(tg=>{
+                console.log(tg);
+                
+                tg.forEach(i=>{
+                    var url=`${site}/${i.code}`;
+                    xml += `<url><loc>${url}</loc></url>`;
+                })
+                xml += `</urlset>`;
+                res.send(xml);
+            })
+
+           
         })
+        
         .catch(err=>{
             throw err;
             next();
