@@ -35,6 +35,7 @@ button, input, optgroup, select, textarea {
 }
 .main>.right>.post_container {
 	margin: 0 40px;
+	width: 100%;
 }
 .post_header>h1.post_title {
 	font-size: 55px;
