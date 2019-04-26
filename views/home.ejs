@@ -4,7 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title><%= on?'Handerstand':tag.split("-").join(" ")%></title>
+	<title><%= on?'Handerstand':tag.split("-").join(" ") %></title>
+
+	<meta name="title" content="<%= on?'Handerstand':tag.split('-').join(' ') %>">
+	<meta name="description" content="Simplified and easy understanding to topics in fields like computer science, mathematics and others. These are mostly short, brief and concise articles to enable you grasp at first glance.">
+	<meta property="og:title" content="<%= on?'Handerstand':tag.split('-').join(' ') %>">
+	<meta property="og:description" content="Simplified and easy understanding to topics in fields like computer science, mathematics and others. These are mostly short, brief and concise articles to enable you grasp at first glance.">
+	<meta property="og:url" content="<%= process.env.URL %>">
+
 	<link rel="stylesheet" href="css/home.css">
 </head>
 <body>
