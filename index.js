@@ -3,11 +3,13 @@ const app = express();
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
+var favicon = require('express-favicon');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 require('dotenv').config();
 var port = process.env.PORT || 8080;
 
+app.use(favicon(__dirname+'/public/img/favicon.png'));
 app.use(express.static(__dirname+'/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
