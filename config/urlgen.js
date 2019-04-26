@@ -1,4 +1,4 @@
-var words = ['a','and','the','an','it','is','with','can','of','why','not'];
+var words = ['a','and','the','an','it','is','with','can','of','why','not','in'];
 module.exports = function(title){
     //removing starting,ending and double spaces
     title = title.trim().toLowerCase();
@@ -11,6 +11,7 @@ module.exports = function(title){
         }
     });
     title = title.join("-");
+    //removing punctuations from url
     return title;
 }
 
