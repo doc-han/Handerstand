@@ -16,7 +16,6 @@ function add(num){
 
 function submit(loc){
     var html = "";
-    var content = [];
     var title = document.getElementById("post_title");
     var desc = document.getElementById("post_description");
     var a = document.getElementsByClassName("post_data");
@@ -26,7 +25,6 @@ function submit(loc){
             html += "<p>"+ a[i].innerHTML +"</p>";
         }else if(ref == "h"){
             html += "<h>"+ a[i].innerHTML +"</h2>";
-            content.push(id);
         }else if(ref == "cpp"){
             html += "<pre><code class='language-cpp'>"+ a[i].value+ "</code></pre>";
         }else if(ref == "js"){
