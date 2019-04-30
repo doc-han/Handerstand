@@ -25,16 +25,17 @@ function submit(loc){
         if(ref == "p"){
             html += "<p>"+ a[i].innerHTML +"</p>";
         }else if(ref == "h"){
-            var id = a[i].innerHTML.split(" ").join("-");
-            html += "<h2 id="+id+">"+ a[i].innerHTML +"</h2>";
-            //html = html.replace(/\'/g,"\\\'");
+            html += "<h>"+ a[i].innerHTML +"</h2>";
             content.push(id);
         }else if(ref == "cpp"){
             html += "<pre><code class='language-cpp'>"+ a[i].value+ "</code></pre>";
         }else if(ref == "js"){
             html += "<pre><code class='language-js'>"+ a[i].value+ "</code></pre>";
         }else if(ref == "markup"){
-            html += "<pre><code class='language-markup'>"+ a[i].value+ "</code></pre>";
+            var vl = a[i].value;
+            vl = vl.replace(/\</g,"&lt;").replace(/\>/g,"&gt;");
+            vl = vl.replace(/\"/g,"&quot;");
+            html += "<pre><code class='language-markup'>"+ vl + "</code></pre>";
         }else if(ref == "java"){
             html += "<pre><code class='language-java'>"+ a[i].value+ "</code></pre>";
         }
