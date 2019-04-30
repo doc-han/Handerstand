@@ -67,7 +67,20 @@
 							<h5>&raquo; <%=tag.split("-").join(" ")%></h5>
 						<% } %>
 					<br>
-					<input type="search" placeholder="Search">
+					<div>
+						<script>
+							(function() {
+								var cx = '008007161414232679043:ritva8fmsag';
+								var gcse = document.createElement('script');
+								gcse.type = 'text/javascript';
+								gcse.async = true;
+								gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+								var s = document.getElementsByTagName('script')[0];
+								s.parentNode.insertBefore(gcse, s);
+							})();
+						</script>
+						<gcse:search></gcse:search>
+					</div>
 						<% if(on){ %> 
 							<h4>Categories</h4>	 
 						<%}%>
