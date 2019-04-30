@@ -4,9 +4,9 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title><%= on?'Handerstand':tag.split("-").join(" ") %></title>
+	<title><%= on?'Handerstand':tag.split("-").join(" ")+' - Handerstand' %></title>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125082643-2"></script>
+<script async src="<%='https://www.googletagmanager.com/gtag/js?id='+process.env.GOOGLE_ANALYTICS %>"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
