@@ -16,7 +16,8 @@ module.exports = function(app){
 
     app.get('/:tag',(req,res,next)=>{
         tag.findOne({code: req.params.tag}).sort({date: -1})
-        .then(result=>{
+        .exec((err,result)=>{
+            if(err)throw err;
             if(result){
                 post.find({tags: {$all:[req.params.tag]},active:true}).select("title description date url tags")
                 .then(doc=>{
@@ -28,7 +29,6 @@ module.exports = function(app){
                 .catch()
             }else next();
         })
-        .catch()
     });
 
     app.get('/:url',(req,res,next)=>{
