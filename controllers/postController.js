@@ -15,7 +15,7 @@ module.exports = function(app){
     });
 
     app.get('/:tag',(req,res,next)=>{
-        tag.findOne({code: req.params.tag})
+        tag.findOne({code: req.params.tag}).sort({date: -1})
         .then(result=>{
             if(result){
                 post.find({tags: {$all:[req.params.tag]},active:true}).select("title description date url tags")
