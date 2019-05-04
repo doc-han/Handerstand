@@ -24,7 +24,7 @@ function submit(loc){
         if(ref == "p"){
             html += "<p>"+ a[i].innerHTML +"</p>";
         }else if(ref == "h"){
-            html += "<h>"+ a[i].innerHTML +"</h2>";
+            html += "<h2>"+ a[i].innerHTML +"</h2>";
         }else if(ref == "cpp"){
             html += "<pre><code class='language-cpp'>"+ a[i].value+ "</code></pre>";
         }else if(ref == "js"){
