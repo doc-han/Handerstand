@@ -4,7 +4,7 @@ var tag = require('../models/tagModel');
 module.exports = function(app){
 
     app.get('/',(req,res)=>{
-        post.find({active: true}).select("title description date url tags").sort('date')
+        post.find({active: true}).select("title description date url tags").sort({date: -1})
         .exec((err,doc)=>{
             if(err)throw err;
             tag.find()
