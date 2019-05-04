@@ -15,11 +15,10 @@ module.exports = function(app){
     });
 
     app.get('/:tag',(req,res,next)=>{
-        tag.findOne({code: req.params.tag}).sort({date: -1})
-        .exec((err,result)=>{
-            if(err)throw err;
+        tag.findOne({code: req.params.tag})
+        .then(result=>{
             if(result){
-                post.find({tags: {$all:[req.params.tag]},active:true}).select("title description date url tags")
+                post.find({tags: {$all:[req.params.tag]},active:true}).select("title description date url tags").sort({date: -1})
                 .then(doc=>{
                     if(doc){
                         res.render('home',{posts:doc,on:false,tag: req.params.tag});
@@ -29,6 +28,7 @@ module.exports = function(app){
                 .catch()
             }else next();
         })
+        .catch()
     });
 
     app.get('/:url',(req,res,next)=>{
