@@ -4,15 +4,13 @@ var tag = require('../models/tagModel');
 module.exports = function(app){
 
     app.get('/',(req,res)=>{
-        post.find({active: true}).select("title description date url tags")
-        .then(doc=>{
+        post.find({active: true}).select("title description date url tags").sort('date')
+        .exec((err,doc)=>{
+            if(err)throw err;
             tag.find()
             .then(tg=>{
                 res.render('home',{posts:doc,tags: tg,on:true});
             })
-        })
-        .catch(err=>{
-            throw err;
         })
     });
 
