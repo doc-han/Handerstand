@@ -3,6 +3,7 @@ module.exports = function(title){
     //removing starting,ending and double spaces
     title = title.trim().toLowerCase();
     title = title.replace(/ +/g," ");
+    title = title.replace(/\//g, " ");
     //removing words not useful to seo
     title = title.split(" ");
     words.forEach(w=>{
